@@ -42,13 +42,13 @@
     <!-- QQ强制竖屏 -->
     <meta name="x5-orientation" content="portrait">
     <!-- UC强制全屏 -->
-    <meta name="full-screen" content="yes">
+    {{--<meta name="full-screen" content="yes">--}}
     <!-- QQ强制全屏 -->
-    <meta name="x5-fullscreen" content="true">
+    {{--<meta name="x5-fullscreen" content="true">--}}
     <!-- UC应用模式 -->
-    <meta name="browsermode" content="application">
+    {{--<meta name="browsermode" content="application">--}}
     <!-- QQ应用模式 -->
-    <meta name="x5-page-mode" content="app">
+    {{--<meta name="x5-page-mode" content="app">--}}
     <!-- windows phone 点击无高光 -->
     <meta name="msapplication-tap-highlight" content="no">
     {{--<!-- iOS 图标 begin -->
@@ -88,20 +88,20 @@
     <!-- 添加 favicon icon -->
 
     <!--html5 旧浏览器支持-->
-    <script src="http://cdn.bootcss.com/modernizr/2010.07.06dev/modernizr.min.js"></script>
+    <script src="//cdn.bootcss.com/modernizr/2010.07.06dev/modernizr.min.js"></script>
 
 {{--
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
     <!--字体图标库 font-awesome-->
-    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     --}}
 
 

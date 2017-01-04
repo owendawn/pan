@@ -42,7 +42,8 @@ class SqlExtra
         $options=array(
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION, //设置如果sql语句执行错误则抛出异常，事务会自动回滚
             \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-            \PDO::ATTR_EMULATE_PREPARES=> false//禁用prepared statements的仿真效果(防SQL注入)
+            \PDO::ATTR_EMULATE_PREPARES=> false,//禁用prepared statements的仿真效果(防SQL注入),
+            \PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true
         );
         if( $this->_pconnect){
             array_add($options,\PDO::ATTR_PERSISTENT,true);

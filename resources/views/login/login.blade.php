@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section("head")
+    @if(session("clearStoreKey")!=""&&session("clearStoreKey")==true)
+        <script>
+            localStorage.clear();
+        </script>
+    @endif
     <style>
         body {
             padding-top: 0;
@@ -176,29 +181,39 @@
     @endsection
 
     @section("content")
-            <!-- Bootstrap Boilerplate... -->
-
     <div class="panel-body" style="padding:0;z-index: -1;" frameborder="0" scrolling="no">
         <div style="z-index: 0;position: fixed;width:100%;height: 100%;;">
             <iframe src="{{$base_url}}/login/loginbg" style="width: 100%;height: 100%;border: 0;"></iframe>
             <div></div>
         </div>
         <div style="padding-top:5%;">
-        <form action="{{$base_url}}/user/login" method="post"
-              style="z-index: 99;position: relative;padding-top:70px;padding-bottom: 25px;">
-            <input name="name" placeholder="What is your name?" class="name" required/>
+        <form action="" method="post" id="theform" style="z-index: 99;position: relative;padding-top:70px;padding-bottom: 25px;">
+            <input name="name" placeholder="What is your name?" type="text" class="name" value="{{session("msg")["name"]}}" required/>
             <input name="password" placeholder="What is your password?" class="email" type="password" required/>
             {{--<textarea rows="4" cols="50" name="subject" placeholder="Please enter your message" class="message" required></textarea>--}}
-            <input name="submit" class="btn" type="submit" value="Login"/>
+            <div><input type="checkbox" name="store" style="width: inherit;display: inline-block;height: inherit;"/><span style="color: silver;">保存密码(30天)</span></div>
+            <input name="submit" class="btn" type="submit" value="Login" onclick="login()"/>
             <br>
-            <span style="color:rgba(247, 150, 200, 0.7);">{{isset($login)&&$login==false?$loginInfo:""}}</span>
+            <span style="color:rgba(247, 150, 200, 0.7);" id="info">{{isset($login)&&$login==false?$loginInfo:""}}</span>
             <br>
-            <hr style="border-color: #908b8b;">
+            <hr style="width:100%;border-color: #908b8b;">
             <a href="{{$base_url}}/login/register">No Account ?</a>
         </form>
         </div>
     </div>
-
+<script>
+    function login(){
+        $_formdom=document.getElementById("theform");
+        $_infodom=document.getElementById("info");
+        if(document.getElementsByName("name").value==""){
+            $_formdom.innerHTML="name is required!";
+        }else if(document.getElementsByName("password").value==""){
+            $_formdom.innerHTML="password is required!";
+        }else{
+            $_formdom.action="{{$base_url}}/user/login";
+        }
+    }
+</script>
 @endsection
 
 

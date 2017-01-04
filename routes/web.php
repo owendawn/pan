@@ -10,6 +10,14 @@
 |
 */
 
+function logindispatch(\App\Http\Controllers\ViewController $viewController, $theview){
+    if($viewController->checkLogined()){
+        return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile());
+    }else{
+//        return view('login/login')->with("base_url", Config::get("app.base_url"));
+        return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile())->with("checkLogin",true);
+    }
+}
 
 //=============================精准路径====================================
 Route::group(["prefix" => "init"], function () {
@@ -19,28 +27,45 @@ Route::group(["prefix" => "init"], function () {
 });
 
 Route::group(["prefix" => "user"], function () {
-    Route::any('/login', function (\App\Http\Controllers\UserController $userController) {
-        return  $userController->login()->with("base_url", Config::get("app.base_url"));
+    Route::any('/login', function (\App\Http\Controllers\UserController $userController,\Symfony\Component\HttpFoundation\Request $request) {
+        return  $userController->login($request)->with("base_url", Config::get("app.base_url"));
+    });
+    Route::any('/register', function (\App\Http\Controllers\UserController $userController) {
+        return  $userController->register()->with("base_url", Config::get("app.base_url"));
+    });
+    Route::any('/logout', function (\App\Http\Controllers\UserController $userController) {
+        return  $userController->logout()->with("base_url", Config::get("app.base_url"));
     });
 });
 
 
 //=============================范路径=================================
 
-Route::get('/', function () {
-    return view('index')->with("base_url", Config::get("app.base_url"));
+Route::get('/', function (\App\Http\Controllers\ViewController $viewController) {
+    return logindispatch($viewController,view('index'));
+});
+Route::get('/{f1}', function ($f1,\App\Http\Controllers\ViewController $viewController) {
+    return logindispatch($viewController,view($f1));
+});
+Route::get('/{d1}/{f1}', function ($d1, $f1,\App\Http\Controllers\ViewController $viewController,\Illuminate\Http\Request $req) {
+    $xduri=substr($req->getRequestUri(),strlen(Config::get("app.base_url")));
+    if($xduri=="/enjoy/enjoy"){
+        if($viewController->isMobile()){
+           return logindispatch($viewController,view("enjoy/enjoy-mobile"));
+        }else{
+            return logindispatch($viewController,view("enjoy/enjoy-pc"));
+        }
+    }else if($xduri=="/enjoy/enjoyedit"){
+        if($viewController->isMobile()){
+            return logindispatch($viewController,view("enjoy/enjoyedit-mobile"));
+        }else{
+            return logindispatch($viewController,view("enjoy/enjoyedit-pc"));
+        }
+    }
+    return logindispatch($viewController,view($d1 . "/" . $f1));
 });
 
-Route::get('/{f1}', function ($f1) {
-    return view($f1)->with("base_url", Config::get("app.base_url"));
-});
-Route::get('/{d1}/{f1}', function ($d1, $f1) {
-    return view($d1 . "/" . $f1)->with("base_url", Config::get("app.base_url"));
-});
 
-Route::get('/{d1}/{d2}/{f1}', function ($d1, $d2,$f1) {
-    return view($d1 . "/".$d2."/" . $f1)->with("base_url", Config::get("app.base_url"));
-});
 
 
 

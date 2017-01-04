@@ -184,22 +184,43 @@
             <div></div>
         </div>
         <div style="padding-top: 5%;">
-            <form action="{{$base_url}}/user/login" method="post"
-                  style="z-index: 99;position: relative;padding-top:70px;padding-bottom: 25px;">
-                <input name="name" placeholder="What is your name?" class="name" required/>
-                <input name="name" placeholder="What is your nickname?" class="name" required/>
+            <form action="javascript:submit();" method="post" style="z-index: 99;position: relative;padding-top:70px;padding-bottom: 25px;" id="theform">
+                <input name="name" placeholder="What is your name?" class="name" type="text" required value="{{isset($msg)&&isset($msg["name"])?$msg["name"]:""}}"/>
+                <input name="mail" placeholder="What is your Email?" class="email" type="email" required  value="{{isset($msg)&&isset($msg["mail"])?$msg["mail"]:""}}"/>
                 <input name="password" placeholder="What is your password?" class="email" type="password" required/>
                 <input name="passwordcheck" placeholder="Your password, Again?" class="email" type="password" required/>
                 {{--<textarea rows="4" cols="50" name="subject" placeholder="Please enter your message" class="message" required></textarea>--}}
-                <input name="submit" class="btn" type="submit" value="Register"/>
+                <input name="button" class="btn" type="submit" value="Register"/>
                 <br>
-                <span style="color:rgba(247, 150, 200, 0.7);">{{isset($login)&&$login==false?$loginInfo:""}}</span>
+                <span id="info" style="color:rgba(247, 150, 200, 0.7);">{{isset($register)&&$register==false?$info:""}}</span>
                 <br>
-                <hr style="border-color: #908b8b;">
+                <hr style="width:100%;border-color: #908b8b;">
                 <a href="{{$base_url}}/login/login">already has an Account ?</a>
             </form>
         </div>
     </div>
+    <script>
+        function submit(obj){
+            $_formdom=document.getElementById("theform");
+            $_infodom=document.getElementById("info");
+            if(document.getElementsByName('name').value==""){
+                $_infodom.innerHTML="name is required!";
+            }else if(document.getElementsByName('mail').value==""){
+                $_infodom.innerHTML="Email is required!";
+            }else if(document.getElementsByName("password").value==""){
+                $_infodom.innerHTML="password is required!";
+            }else{
+                $_infodom.innerHTML="";
+                if(document.getElementsByName("password").value==document.getElementsByName("passwordcheck").value){
+                    $_formdom.action="{{$base_url}}/user/register";
+                    document.getElementById("theform").submit();
+                    document.getElementsByName("button")[0].click();
+                }else{
+                    $_infodom.innerHTML="password again is't same as password!";
+                }
+            }
+        }
+    </script>
 
 @endsection
 
