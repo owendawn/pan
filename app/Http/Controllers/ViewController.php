@@ -40,7 +40,8 @@ class ViewController extends Controller
             $key = isset($keys["lkey"]) ? $keys["lkey"] : "";
 //        $key=$request->session()->get('lkey');
             if ($key != null) {
-                $t = intval(substr($key, 37, 10));
+
+                $t = intval(substr($key, strrpos($key,"-")+1, 10));
 //                var_dump((($dt->getTimestamp() - $t) / 60) . "min");
                 if ($dt->getTimestamp() - $t > 30 * 60) {
 //                    var_dump("over");

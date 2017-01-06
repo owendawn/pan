@@ -15,6 +15,10 @@ class DataHandlerUtil
         return json_encode(['success'=>true,'code'=>$code,'data'=>$arr]);
     }
 
+    public static function returnJsonOnly($arr){
+        echo json_encode($arr);
+    }
+
     public static function getUtf8FromGbk($it){
         return iconv('GB2312', 'UTF-8', $it);
     }

@@ -10,10 +10,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Extra\SqlExtra;
 use Faker\Provider\Uuid;
-use Faker\Provider\zh_CN\DateTime;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -39,16 +35,18 @@ class UserController extends Controller
         try {
             $sqlExtra = new SqlExtra();
             $pdo = $sqlExtra->getPDO();
-            $ps=$pdo->prepare("select PASSWORD as pwd from user where NAME= :name");
+            $ps=$pdo->prepare("select PASSWORD as pwd,id as id from user where NAME= :name");
             $ps->execute(array(':name' => $name));
             if($ps->rowCount()>0){
-                $pwdreal=$ps->fetchAll()[0]["pwd"];
+                $all=$ps->fetchAll();
+                $pwdreal=$all[0]["pwd"];
+                $id=$all[0]["id"];
                 if($pwd==$pwdreal){
                     $dt = new \DateTime();
-                    $key=Uuid::uuid() . "-" .$dt->getTimestamp().($store=="on"?"-all":"");
+                    $key=$id."-".$name.'-'.Uuid::uuid() . "-" .$dt->getTimestamp();
                     $request->session()->put('lkey', $key);
-                    $encrptKey=base64_encode(base64_encode($name.'-'.$key));
-                    return redirect("index")->with("login", true)->with("path","/index")->with("isStore",$store=="on"?true:false)->with("storeKey",$encrptKey);
+                    $encreptKey=base64_encode(base64_encode($key.($store=="on"?"-all":"")));
+                    return redirect("index")->with("login", true)->with("path","/index")->with("isStore",$store=="on"?true:false)->with("storeKey",$encreptKey)->with("session",$key);
                 }else{
                    $info="User or Password is Wrong!";
                 }

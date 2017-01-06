@@ -28,6 +28,10 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
+Route::post('/vedios!{method}', function (\App\Http\Controllers\VedioController $vedioController, $method, Request $request) {
+    return $vedioController->$method($request);
+});
+
 //Route::get('/auth', [
 //    'middleware' => 'auth',
 //    'uses' => 'Auth\LoginController@login'

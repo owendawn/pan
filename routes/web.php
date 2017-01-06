@@ -11,6 +11,7 @@
 */
 
 function logindispatch(\App\Http\Controllers\ViewController $viewController, $theview){
+//    var_dump(session()->all());
     if($viewController->checkLogined()){
         return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile());
     }else{
@@ -51,15 +52,15 @@ Route::get('/{d1}/{f1}', function ($d1, $f1,\App\Http\Controllers\ViewController
     $xduri=substr($req->getRequestUri(),strlen(Config::get("app.base_url")));
     if($xduri=="/enjoy/enjoy"){
         if($viewController->isMobile()){
-           return logindispatch($viewController,view("enjoy/enjoy-mobile"));
+            $f1="enjoy-mobile";
         }else{
-            return logindispatch($viewController,view("enjoy/enjoy-pc"));
+            $f1="enjoy-pc";
         }
     }else if($xduri=="/enjoy/enjoyedit"){
         if($viewController->isMobile()){
-            return logindispatch($viewController,view("enjoy/enjoyedit-mobile"));
+            $f1="enjoyedit-mobile";
         }else{
-            return logindispatch($viewController,view("enjoy/enjoyedit-pc"));
+            $f1="enjoyedit-pc";
         }
     }
     return logindispatch($viewController,view($d1 . "/" . $f1));

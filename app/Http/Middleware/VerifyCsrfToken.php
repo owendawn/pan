@@ -20,7 +20,8 @@ class VerifyCsrfToken extends BaseVerifier
     public function handle($request, Closure $next)
     {
         if($request->method()=="POST"){
-            return $next($request);
+//            return $next($request);
+            return parent::addCookieToResponse($request, $next($request));
         }
         for ($i = 0; $i < count($this->except); $i++) {
             $it=Config::get("app.base_url").$this->except[$i];
