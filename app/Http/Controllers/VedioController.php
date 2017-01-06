@@ -12,7 +12,7 @@ use App\Http\Extra\SqlExtra;
 use App\Utils\DataHandlerUtil;
 use Illuminate\Http\Request;
 
-class VedioController extends Controller
+class VideoController extends Controller
 {
     public function getVedioOfAvailable(Request $request){
         $sEcho=intval($_REQUEST["sEcho"]);
@@ -211,6 +211,15 @@ class VedioController extends Controller
             }
         } catch (\PDOException $e) {
             return DataHandlerUtil::returnJson($e->getCode(),array("info"=>$e->getMessage()));
+        }
+    }
+
+    public function getImgUrlByName(Request $request){
+        $words=$this->getRequestParam("words");
+        if($words==""){
+            return DataHandlerUtil::returnJson("-1",array("info"=>"please fill the video's name"));
+        }else{
+
         }
     }
 }
