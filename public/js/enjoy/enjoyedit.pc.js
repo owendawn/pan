@@ -23,7 +23,7 @@ oTable = $('#editabledatatable').dataTable({
     "bScrollCollapse": true,
     "sPaginationType": "full_numbers",
     "sServerMethod": "POST",
-    "sAjaxSource": baseUrl+"/api/vedios!getVedioOfAvailable",
+    "sAjaxSource": baseUrl+"/api/videos!getVideoOfAvailable",
     "aoColumns": [{
         "mData": "week",
         "sTitle": "时间",
@@ -114,9 +114,9 @@ $("#modelsave").on("click",function(){
     var _fun=$(this).attr("data-fun");
     var url;
     if(_fun=="add"){
-        url=baseUrl+"/api/vedios!addNewVedio";
+        url=baseUrl+"/api/videos!addNewVideo";
     }else if(_fun=="edit"){
-        url=baseUrl+"/api/vedios!editVedioById"
+        url=baseUrl+"/api/videos!editVideoById"
     }
     $.post(url,$("#myModal form").serialize()+"&userId="+userId,function(data){
         if(data.code!="00000"){
@@ -145,7 +145,7 @@ $('#editabledatatable').on("click", 'a.delete', function(e) {
     },
     function(isConfirm){
         if (isConfirm) {
-            $.post(baseUrl+"/api/vedios!fackdeleteById", {
+            $.post(baseUrl+"/api/videos!fackDeleteById", {
                 "id": _id,
                 "userId":userId
             }, function(datas) {
@@ -203,7 +203,7 @@ oTable2 = $('#trashdatatable').dataTable({
     "bScrollCollapse": true,
     "sPaginationType": "full_numbers",
     "sServerMethod": "POST",
-    "sAjaxSource": baseUrl+"/api/vedios!getVedioOfTrash",
+    "sAjaxSource": baseUrl+"/api/videos!getVideoOfTrash",
     "aoColumns": [{
         "mData": "week",
         "sTitle": "时间",
@@ -272,14 +272,14 @@ $('#trashdatatable').on("click", 'a.reducte', function(e) {
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#5bc0de",
-            confirmButtonText: "reducte",
+            confirmButtonText: "reducted",
             cancelButtonText: "cancel",
             closeOnConfirm: true,
             closeOnCancel: true
         },
         function(isConfirm){
             if (isConfirm) {
-                $.post(baseUrl+"/api/vedios!reducteById", {
+                $.post(baseUrl+"/api/videos!reductedById", {
                     "id": _id,
                     userId:userId
                 }, function(datas) {
@@ -311,7 +311,7 @@ $('#trashdatatable').on("click", 'a.delete', function(e) {
         },
         function(isConfirm){
             if (isConfirm) {
-                $.post(baseUrl+"/api/vedios!deleteById", {
+                $.post(baseUrl+"/api/videos!deleteById", {
                     "id": _id,
                     userId:userId
                 }, function(datas) {

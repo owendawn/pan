@@ -82,14 +82,14 @@ class InitController extends Controller
             }else{
                 array_push($infos,array("code"=>1,"create table user fail,due to the table is not exists after operate."));
             }
-            $sql="CREATE TABLE if not EXISTS vedios (id int(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, userid int(20) DEFAULT NULL,link varchar(250) DEFAULT NULL,img varchar(250) DEFAULT NULL,title varchar(50) DEFAULT NULL,week varchar(50) DEFAULT NULL,status int(10) DEFAULT NULL,created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,updated_at timestamp NOT NULL DEFAULT '0000-00-00 00:00:00') ENGINE=InnoDB DEFAULT CHARSET=utf8";
+            $sql="CREATE TABLE if not EXISTS videos (id int(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, userid int(20) DEFAULT NULL,link varchar(250) DEFAULT NULL,img varchar(250) DEFAULT NULL,title varchar(50) DEFAULT NULL,week varchar(50) DEFAULT NULL,status int(10) DEFAULT NULL,created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,updated_at timestamp NOT NULL DEFAULT '0000-00-00 00:00:00') ENGINE=InnoDB DEFAULT CHARSET=utf8";
             $pdo->exec($sql);
-             $re =$pdo->query("select count(1) as cnt from vedios");
+             $re =$pdo->query("select count(1) as cnt from videos");
             if($re->rowCount()>0){
                 $success = true && $success;
-                array_push($infos, array("code"=>0,"desc"=>"create table of vedios success."));
+                array_push($infos, array("code"=>0,"desc"=>"create table of videos success."));
             }else{
-                array_push($infos,array("code"=>1,"create table vedios fail,due to the table is not exists after operate."));
+                array_push($infos,array("code"=>1,"create table videos fail,due to the table is not exists after operate."));
             }
             return DataHandlerUtil::returnJson(null, ["isSuccess" => $success, "infos" => $infos]);
         } catch (\PDOException $e) {

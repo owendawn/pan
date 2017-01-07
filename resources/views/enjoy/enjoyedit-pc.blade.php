@@ -10,7 +10,7 @@
 <link href="//cdn.bootcss.com/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <script src="//cdn.bootcss.com/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.bootcss.com/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
-<script src="/apps/web/lib/dataTables.extends.js"></script>
+<script src="{{$base_url}}/js/enjoy/dataTables.extends.js"></script>
 <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 <style>
     html, body {
@@ -234,7 +234,7 @@
                             <div class="col-sm-10">
                                 {{--<input type="text" class="form-control" id="image" name="image" placeholder="请输入图片网址">--}}
                                 <div class="input-group">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="image" name="image" >
                                     <span class="input-group-btn">
 
                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">

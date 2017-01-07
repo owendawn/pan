@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
-    public function getVedioOfAvailable(Request $request){
+    public function getVideoOfAvailable(Request $request){
         $sEcho=intval($_REQUEST["sEcho"]);
         $sortColIndex=$_REQUEST["iSortCol_0"];
         $sortType=$_REQUEST["sSortDir_0"];
@@ -35,13 +35,13 @@ class VideoController extends Controller
             try {
                 $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
-                $ps=$pdo->prepare("select count(1) as cnt from vedios where status=0 and userid=:userid");
+                $ps=$pdo->prepare("select count(1) as cnt from videos where status=0 and userid=:userid");
                 $ps->execute(array(":userid"=>$userId));
                 if ($ps->rowCount() > 0) {
                     $data = [];
                     $cnt = $ps->fetchAll()[0]["cnt"];
                     if ($cnt > 0) {
-                        $ps = $pdo->prepare("select * from vedios where status=0 and userid=:userid order by ".$sortCol." ".$sortType." LIMIT :start,:length ");
+                        $ps = $pdo->prepare("select * from videos where status=0 and userid=:userid order by ".$sortCol." ".$sortType." LIMIT :start,:length ");
                         $ps->execute(array(":start" => intval($start), ":length" => intval($length),":userid"=>$userId));
                         $data = $ps->fetchAll();
                     }
@@ -55,7 +55,7 @@ class VideoController extends Controller
         }
     }
 
-    public function getVedioOfTrash(Request $request){
+    public function getVideoOfTrash(Request $request){
         $sEcho=intval($_REQUEST["sEcho"]);
         $sortColIndex=$_REQUEST["iSortCol_0"];
         $sortType=$_REQUEST["sSortDir_0"];
@@ -76,13 +76,13 @@ class VideoController extends Controller
             try {
                 $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
-                $ps=$pdo->prepare("select count(1) as cnt from vedios where status=1 and userid=:userid");
+                $ps=$pdo->prepare("select count(1) as cnt from videos where status=1 and userid=:userid");
                 $ps->execute(array(":userid"=>$userId));
                 if ($ps->rowCount() > 0) {
                     $data = [];
                     $cnt = $ps->fetchAll()[0]["cnt"];
                     if ($cnt > 0) {
-                        $ps = $pdo->prepare("select * from vedios where status=1 and userid=:userid order by ".$sortCol." ".$sortType." LIMIT :start,:length ");
+                        $ps = $pdo->prepare("select * from videos where status=1 and userid=:userid order by ".$sortCol." ".$sortType." LIMIT :start,:length ");
                         $ps->execute(array(":start" => intval($start), ":length" => intval($length),":userid"=>$userId));
                         $data = $ps->fetchAll();
                     }
@@ -96,7 +96,7 @@ class VideoController extends Controller
         }
     }
 
-    public function addNewVedio(Request $request){
+    public function addNewVideo(Request $request){
         $title=$this->getRequestParam("title");
         $link=$this->getRequestParam("link");
         $image=$this->getRequestParam("image");
@@ -106,7 +106,7 @@ class VideoController extends Controller
         try {
             $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
-            $ps=$pdo->prepare("insert into vedios (userid,link,img,title,week,status) values (:userId,:link,:img,:title,:week,0)");
+            $ps=$pdo->prepare("insert into videos (userid,link,img,title,week,status) values (:userId,:link,:img,:title,:week,0)");
             $ps->execute(array(":userId"=>$userId,":link"=>$link,":img"=>$image,":title"=>$title,":week"=>$time));
             if($ps->errorCode()=="00000"){
                 return DataHandlerUtil::returnJson("00000",array());
@@ -118,7 +118,7 @@ class VideoController extends Controller
         }
     }
 
-    public function editVedioById(Request $request){
+    public function editVideoById(Request $request){
         $id=$this->getRequestParam("id");
         $title=$this->getRequestParam("title");
         $link=$this->getRequestParam("link");
@@ -133,7 +133,7 @@ class VideoController extends Controller
         try {
             $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
-            $ps=$pdo->prepare("update vedios set link=:link,img=:img,title=:title,week=:week,updated_at=SYSDATE() where userid=:userId and id=:id");
+            $ps=$pdo->prepare("update videos set link=:link,img=:img,title=:title,week=:week,updated_at=SYSDATE() where userid=:userId and id=:id");
             $ps->execute(array(":userId"=>$userId,":link"=>$link,":img"=>$image,":title"=>$title,":week"=>$time,":id"=>$id));
             if($ps->errorCode()=="00000"){
                 return DataHandlerUtil::returnJson("00000",array());
@@ -145,7 +145,7 @@ class VideoController extends Controller
         }
     }
 
-    public function fackdeleteById(Request $request){
+    public function fackDeleteById(Request $request){
         $id=$this->getRequestParam("id");
         $userId=$this->getRequestParam("userId");
         if (strpos($userId, "-") == false) {
@@ -156,7 +156,7 @@ class VideoController extends Controller
         try {
             $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
-            $ps=$pdo->prepare("update  vedios set status =1 ,updated_at=SYSDATE() where userid=:userId and id=:id");
+            $ps=$pdo->prepare("update  videos set status =1 ,updated_at=SYSDATE() where userid=:userId and id=:id");
             $ps->execute(array(":id"=>$id,":userId"=>$userId));
             if($ps->errorCode()=="00000"){
                 return DataHandlerUtil::returnJson("00000",array());
@@ -179,7 +179,7 @@ class VideoController extends Controller
         try {
             $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
-            $ps=$pdo->prepare("update  vedios set status =2 ,updated_at=SYSDATE() where userid=:userId and id=:id");
+            $ps=$pdo->prepare("update  videos set status =2 ,updated_at=SYSDATE() where userid=:userId and id=:id");
             $ps->execute(array(":id"=>$id,":userId"=>$userId));
             if($ps->errorCode()=="00000"){
                 return DataHandlerUtil::returnJson("00000",array());
@@ -191,7 +191,7 @@ class VideoController extends Controller
         }
     }
 
-    public function reducteById(Request $request){
+    public function reductedById(Request $request){
         $id=$this->getRequestParam("id");
         $userId=$this->getRequestParam("userId");
         if (strpos($userId, "-") == false) {
@@ -202,7 +202,7 @@ class VideoController extends Controller
         try {
             $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
-            $ps=$pdo->prepare("update  vedios set status =0 ,updated_at=SYSDATE() where userid=:userId and id=:id");
+            $ps=$pdo->prepare("update  videos set status =0 ,updated_at=SYSDATE() where userid=:userId and id=:id");
             $ps->execute(array(":id"=>$id,":userId"=>$userId));
             if($ps->errorCode()=="00000"){
                 return DataHandlerUtil::returnJson("00000",array());
@@ -215,11 +215,29 @@ class VideoController extends Controller
     }
 
     public function getImgUrlByName(Request $request){
+        include_once(dirname(dirname(__DIR__))."/Utils/simple_html_dom.php");
+        $html=new \simple_html_dom();
         $words=$this->getRequestParam("words");
         if($words==""){
             return DataHandlerUtil::returnJson("-1",array("info"=>"please fill the video's name"));
         }else{
-
+            $html->load_file('http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=25&ie=utf-8&word='.urlencode("°Ö°ÖÈ¥ÄÄ¶ù"));
+            $imgs=$html->find("#content>.main-content>.special-wrap>.sp-cont-show>.detail-info>.poster>.poster-link>img");
+            $imgsall=$imgs;
+//            $html->load_file('http://m.v.baidu.com/search?src=video&word='.urlencode("°Ö°ÖÈ¥ÄÄ¶ù"));
+//            $imgs2=$html->find("#search-page>.search-bd>.search-block.search-block-tvshow>.special-base-wrap>.base-poster>img");
+//            $imgsall=array_merge($imgs,$imgs2);
+            $srcs=[];
+            foreach($imgsall as $img){
+                $src=$img->src;
+                if(strpos($src,".hiphotos.baidu")==false&&strpos($src,".baidu.com/it/u")!=false) {
+                    array_push($srcs,$src);
+//                    echo "<img src='" . $img->src . "' style='width:100px:height:50px;'/>";
+//                    echo $img->src;
+//                    echo "<br>";
+                }
+            }
+            return DataHandlerUtil::returnJson("00000",array("data"=>$srcs));
         }
     }
 }

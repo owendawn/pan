@@ -24,11 +24,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::any("/init!{method}",function(\App\Http\Controllers\InitController $initController,$method,Request $request){
        return $initController->$method($request);
     });
-
+    Route::any("/hello",function(\App\Http\Controllers\VideoController $videoController,Request $request){
+       return $videoController->getImgUrlByName($request);
+    });
 });
 
 
-Route::post('/vedios!{method}', function (\App\Http\Controllers\VideoController $videoController, $method, Request $request) {
+Route::post('/videos!{method}', function (\App\Http\Controllers\VideoController $videoController, $method, Request $request) {
     return $videoController->$method($request);
 });
 
