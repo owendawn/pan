@@ -98,8 +98,11 @@ function clearModel(isEditNotAdd){
         _fun="add";
     }
     $("#myModal form").get(0).reset();
+    $("#time option").removeAttr("selected");
     $("#myModalLabel").text(_title);
+    $("#modalimg").attr("src","");
     $("#modelsave").attr("data-fun",_fun);
+    $("#imgdiv .imgbtn").hide();
 }
 
 //Add New Row
@@ -186,6 +189,76 @@ $('#editabledatatable').on("click", 'a.edit', function(e) {
     $('#myModal').modal({keyboard: true});
 
 });
+
+var imgs=[],imgidx=-1;
+$("#imgsearchbtn").on("click",function(e){
+    e.preventDefault();
+    imgs=[];
+    imgidx=-1;
+    var _words=$("#myModal input[name='title']").val();
+    if(_words.trim()==""){
+        swal("提醒!", "请先填写视频名称", "warning");
+    }else {
+        swal({
+                title: "Are you sure?",
+                text: "确认搜索视频【" + _words + "】吗?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#5bc0de",
+                confirmButtonText: "yes",
+                cancelButtonText: "cancel",
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.post(baseUrl + "/api/videos!getImgUrlByName", {
+                        userId: userId,
+                        words: _words
+                    }, function (datas) {
+                        if (datas.code != "00000") {
+                            swal("提醒!", datas.info, "warning");
+                        }else if(datas.data.data.length==0){
+                            swal("提醒!", "搜索结果为空，请手动输入", "warning");
+                        } else {
+                            imgs=datas.data.data;
+                            imgidx=0;
+                            $("#imgdiv .imgbtn").show();
+                            showImage(0);
+                        }
+                    }, "json");
+                }
+            });
+    }
+});
+
+function showImage(offset){
+    var _src;
+    if(offset!=undefined) {
+        imgidx=imgidx+offset;
+        _src=imgs[imgidx];
+        if (imgidx == 0) {
+            $("#imgdiv a:eq(0)").hide();
+        } else {
+            $("#imgdiv a:eq(0)").show();
+        }
+        if (imgidx == imgs.length - 1) {
+            $("#imgdiv a:eq(1)").hide();
+        } else {
+            $("#imgdiv a:eq(1)").show();
+        }
+        _src = _src.replace(new RegExp("&amp;", "g"), "&");
+    }else{
+        $("#imgdiv .imgbtn").hide();
+        _src=$("#myModal input[name='image']").val().trim();
+    }
+    $("#modalimg").attr("src",_src);
+
+}
+
+function chooseImg(){
+    $("#image").val(imgs[imgidx].replace(new RegExp("&amp;", "g"), "&"));
+}
 
 //-----------------------------------------回收站---------------------------------------------------------------------
 
@@ -326,4 +399,6 @@ $('#trashdatatable').on("click", 'a.delete', function(e) {
             }
         });
 });
+
+
 

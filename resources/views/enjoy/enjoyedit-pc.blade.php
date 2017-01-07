@@ -237,20 +237,26 @@
                                     <input type="text" class="form-control" id="image" name="image" >
                                     <span class="input-group-btn">
 
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                                            select&nbsp;<span class="caret"></span>
+                                        <button type="button" class="btn btn-default dropdown-toggle"{{-- data-toggle="dropdown" tabindex="-1"--}} id="imgsearchbtn">
+                                            select&nbsp;
+                                            {{--<span class="caret"></span>--}}
                                         </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="#">功能</a></li>
-                                            <li><a href="#">另一个功能</a></li>
-                                            <li><a href="#">其他</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">分离的链接</a></li>
-                                        </ul>
-                                        <button class="btn btn-default" type="button">preview</button>
+                                        {{--<ul class="dropdown-menu pull-right">--}}
+                                            {{--<li><a href="#">...</a></li>--}}
+                                            {{--<li class="divider"></li>--}}
+                                            {{--<li><a href="#">分离的链接</a></li>--}}
+                                        {{--</ul>--}}
+                                        <button class="btn btn-default" type="button" onclick="showImage()">preview</button>
                                     </span>
                                 </div>
                             </div>
+                        </div>
+                        <hr>
+                        <div id="imgdiv" style="text-align: center;">
+                            <img src="" id="modalimg">
+                            <a class="imgbtn" onclick="showImage(-1)">上一张</a>
+                            <a class="imgbtn" onclick="showImage(1)" class="">下一张</a>
+                            <a class="imgbtn" onclick="chooseImg()">选择</a>
                         </div>
                     </form>
                 </div>

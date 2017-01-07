@@ -103,6 +103,10 @@ class VideoController extends Controller
         $time=$this->getRequestParam("time");
         $userId=$this->getRequestParam("userId");
         $sqlExtra = new SqlExtra();
+        if (strpos($userId, "-") == false) {
+            $userId = base64_decode(base64_decode($userId));
+        }
+        $userId=intval(substr($userId,0,strpos($userId,"-")));
         try {
             $pdo = $sqlExtra->getPDO();
 //            $pdo=new \PDO("","","");
@@ -221,7 +225,7 @@ class VideoController extends Controller
         if($words==""){
             return DataHandlerUtil::returnJson("-1",array("info"=>"please fill the video's name"));
         }else{
-            $html->load_file('http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=25&ie=utf-8&word='.urlencode("°Ö°ÖÈ¥ÄÄ¶ù"));
+            $html->load_file('http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=25&ie=utf-8&word='.urlencode($words));
             $imgs=$html->find("#content>.main-content>.special-wrap>.sp-cont-show>.detail-info>.poster>.poster-link>img");
             $imgsall=$imgs;
 //            $html->load_file('http://m.v.baidu.com/search?src=video&word='.urlencode("°Ö°ÖÈ¥ÄÄ¶ù"));
