@@ -123,7 +123,7 @@ $("#modelsave").on("click",function(){
     }
     $.post(url,$("#myModal form").serialize()+"&userId="+userId,function(data){
         if(data.code!="00000"){
-            swal("提醒!", data.info, "warning");
+            swal("提醒!", data.data.info, "warning");
         }else{
             oTable.fnDraw();
             $('#myModal').modal("hide");

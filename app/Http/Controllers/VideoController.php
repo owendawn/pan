@@ -15,12 +15,12 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
     public function getVideoOfAvailable(Request $request){
-        $sEcho=intval($_REQUEST["sEcho"]);
-        $sortColIndex=$_REQUEST["iSortCol_0"];
-        $sortType=$_REQUEST["sSortDir_0"];
-        $sortCol=$_REQUEST["mDataProp_".$sortColIndex];
-        $start=$_REQUEST["iDisplayStart"];
-        $length=$_REQUEST["iDisplayLength"];
+        $sEcho=intval($this->getRequestParam("sEcho"));
+        $sortColIndex=$this->getRequestParam("iSortCol_0");
+        $sortType=$this->getRequestParam("sSortDir_0");
+        $sortCol=$this->getRequestParam("mDataProp_".$sortColIndex);
+        $start=$this->getRequestParam("iDisplayStart");
+        $length=$this->getRequestParam("iDisplayLength");
         if(isset($_REQUEST["userid"])) {
             $uid = $_REQUEST["userid"];
             $key = null;
@@ -41,8 +41,14 @@ class VideoController extends Controller
                     $data = [];
                     $cnt = $ps->fetchAll()[0]["cnt"];
                     if ($cnt > 0) {
-                        $ps = $pdo->prepare("select * from videos where status=0 and userid=:userid order by ".$sortCol." ".$sortType." LIMIT :start,:length ");
-                        $ps->execute(array(":start" => intval($start), ":length" => intval($length),":userid"=>$userId));
+                        if($start=="") {
+                            $ps = $pdo->prepare("select * from videos where status=0 and userid=:userid order by week asc");
+                            $ps->execute(array(":userid"=>$userId));
+                        }else {
+                            $ps = $pdo->prepare("select * from videos where status=0 and userid=:userid order by " . $sortCol . " " . $sortType . " LIMIT :start,:length ");
+                            $ps->execute(array(":start" => intval($start), ":length" => intval($length),":userid"=>$userId));
+                        }
+
                         $data = $ps->fetchAll();
                     }
                     return DataHandlerUtil::returnJsonOnly(array("aaData" => $data, "sEcho" => $sEcho, "iTotalRecords" => sizeof($data), "iTotalDisplayRecords" => $cnt));
@@ -56,12 +62,12 @@ class VideoController extends Controller
     }
 
     public function getVideoOfTrash(Request $request){
-        $sEcho=intval($_REQUEST["sEcho"]);
-        $sortColIndex=$_REQUEST["iSortCol_0"];
-        $sortType=$_REQUEST["sSortDir_0"];
-        $sortCol=$_REQUEST["mDataProp_".$sortColIndex];
-        $start=$_REQUEST["iDisplayStart"];
-        $length=$_REQUEST["iDisplayLength"];
+        $sEcho=intval($this->getRequestParam("sEcho"));
+        $sortColIndex=$this->getRequestParam("iSortCol_0");
+        $sortType=$this->getRequestParam("sSortDir_0");
+        $sortCol=$this->getRequestParam("mDataProp_".$sortColIndex);
+        $start=$this->getRequestParam("iDisplayStart");
+        $length=$this->getRequestParam("iDisplayLength");
         if(isset($_REQUEST["userid"])) {
             $uid = $_REQUEST["userid"];
             $key = null;
@@ -82,8 +88,13 @@ class VideoController extends Controller
                     $data = [];
                     $cnt = $ps->fetchAll()[0]["cnt"];
                     if ($cnt > 0) {
-                        $ps = $pdo->prepare("select * from videos where status=1 and userid=:userid order by ".$sortCol." ".$sortType." LIMIT :start,:length ");
-                        $ps->execute(array(":start" => intval($start), ":length" => intval($length),":userid"=>$userId));
+                        if($start==""){
+                            $ps = $pdo->prepare("select * from videos where status=1 and userid=:userid order by week asc ");
+                            $ps->execute(array(":userid" => $userId));
+                        }else {
+                            $ps = $pdo->prepare("select * from videos where status=1 and userid=:userid order by " . $sortCol . " " . $sortType . " LIMIT :start,:length ");
+                            $ps->execute(array(":start" => intval($start), ":length" => intval($length), ":userid" => $userId));
+                        }
                         $data = $ps->fetchAll();
                     }
                     return DataHandlerUtil::returnJsonOnly(array("aaData" => $data, "sEcho" => $sEcho, "iTotalRecords" => sizeof($data), "iTotalDisplayRecords" => $cnt));
