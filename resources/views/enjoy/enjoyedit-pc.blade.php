@@ -232,20 +232,13 @@
                             <label for="image" class="col-sm-2 control-label">图片网址</label>
 
                             <div class="col-sm-10">
-                                {{--<input type="text" class="form-control" id="image" name="image" placeholder="请输入图片网址">--}}
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="image" name="image" >
                                     <span class="input-group-btn">
 
                                         <button type="button" class="btn btn-default dropdown-toggle"{{-- data-toggle="dropdown" tabindex="-1"--}} id="imgsearchbtn">
                                             select&nbsp;
-                                            {{--<span class="caret"></span>--}}
                                         </button>
-                                        {{--<ul class="dropdown-menu pull-right">--}}
-                                            {{--<li><a href="#">...</a></li>--}}
-                                            {{--<li class="divider"></li>--}}
-                                            {{--<li><a href="#">分离的链接</a></li>--}}
-                                        {{--</ul>--}}
                                         <button class="btn btn-default" type="button" onclick="showImage()">preview</button>
                                     </span>
                                 </div>

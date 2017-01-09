@@ -7,10 +7,6 @@
 <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link href="//cdn.bootcss.com/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
-<script src="//cdn.bootcss.com/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.bootcss.com/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
-<script src="{{$base_url}}/js/enjoy/dataTables.extends.js"></script>
 <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 <style>
     html, body {
@@ -151,74 +147,7 @@
                 </a>
             </div>
             <div class="col-xs-12" style="margin-bottom:10px; box-shadow: 0 -4px 13px 0px rgba(0,0,0,.3);" id="cards-container">
-                <div class="panel panel-default" style="margin-top: 10px;background: inherit;box-shadow: 0px 0px 3px 4px rgba(127, 127, 127, 0.3);">
-                    <div class="panel-heading" style="opacity: 0.9;text-align: center;">爸爸去哪儿</div>
-                    <ul class="list-group">
-                        <li class="list-group-item">时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：周一</li>
-                        <li class="list-group-item">链接地址：http://www.baidu.com/fdshkjflsndknfksndfknksdnfkndsk</li>
-                        <li class="list-group-item">图片地址：http://www.baidu.com/fdshkjflsndknfksndfknksdnfkndsk</li>
-                        <li class="list-group-item" style="text-align: center;">
-                            <a><i class="glyphicon glyphicon-edit"></i>修改</a>
-                            <a><i class="glyphicon glyphicon-trash"></i>删除</a>
-                        </li>
-                    </ul>
-                </div>
-              {{--  <div class="tabbable tabs-left">
-                    <ul class="nav nav-tabs" id="myTab3">
-                        <li class="tab-sky active">
-                            <a data-toggle="tab" href="#home">
-                                <i class="glyphicon glyphicon-home"></i>
-                            </a>
-                        </li>
-                        <li class="tab-red">
-                            <a data-toggle="tab" href="#profile">
-                                <i class="glyphicon glyphicon-trash"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="home" class="tab-pane active col-xs-12">
-                            <div class="row localpath">
-                                <div class="link-buttons col-xs-1 pull-right" style="font-size: 16pt;">
-                                    <a href="{{$base_url}}/enjoy/enjoy" data-toggle="tooltip"
-                                       data-placement="bottom" title="Enjoy Station">
-                                        <i class="glyphicon glyphicon-th"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <br>
 
-                            <div class="col-xs-12">
-                                <button id="addnew" class="btn-info btn">新增行</button>
-                            </div>
-                            <div class="col-xs-12">
-                                <table id="editabledatatable"
-                                       class="table table-bordered table-striped table-condensed flip-content"></table>
-                            </div>
-                        </div>
-
-                        <div id="profile" class="tab-pane col-xs-12">
-                            <div class="row localpath">
-                                <div class="link-buttons col-xs-1 pull-right" style="font-size: 16pt;">
-                                    <a href="{{$base_url}}/enjoy/enjoy" data-toggle="tooltip"
-                                       data-placement="bottom" title="Enjoy Station">
-                                        <i class="glyphicon glyphicon-th"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <br>
-
-                            <div class="col-xs-12">
-                                <table id="trashdatatable"
-                                       class="table table-bordered table-striped table-condensed flip-content"
-                                       style="width: 100%;"></table>
-                            </div>
-                        </div>
-                        <div class="horizontal-space"></div>
-                    </div>
-
-
-                </div>--}}
             </div>
         </div>
     <!-- 模态框（Modal） -->
@@ -244,7 +173,6 @@
                             <label for="time" class="col-sm-2 control-label">时间</label>
 
                             <div class="col-sm-10">
-                                {{--<input type="text" class="form-control" id="time" mame="time" placeholder="请输入时间">--}}
                                 <select class="form-control"  id="time" name="time">
                                     <option value="0">请选择时间</option>
                                     <option value="1">周一</option>
@@ -266,16 +194,12 @@
                         </div>
                         <div class="form-group">
                             <label for="image" class="col-sm-2 control-label">图片网址</label>
-
                             <div class="col-sm-10">
-                                {{--<input type="text" class="form-control" id="image" name="image" placeholder="请输入图片网址">--}}
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="image" name="image" >
                                     <span class="input-group-btn">
-
                                         <button type="button" class="btn btn-default dropdown-toggle"{{-- data-toggle="dropdown" tabindex="-1"--}} id="imgsearchbtn">
-                                            select&nbsp;
-                                            {{--<span class="caret"></span>--}}
+                                            select
                                         </button>
                                         <button class="btn btn-default" type="button" onclick="showImage()">preview</button>
                                     </span>
