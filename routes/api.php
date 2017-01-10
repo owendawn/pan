@@ -24,9 +24,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::any("/init!{method}",function(\App\Http\Controllers\InitController $initController,$method,Request $request){
        return $initController->$method($request);
     });
-    Route::any("/hello",function(\App\Http\Controllers\VideoController $videoController,Request $request){
-       return $videoController->getImgUrlByName($request);
-    });
+
 });
 
 
