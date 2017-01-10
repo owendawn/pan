@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section("head")
-    <title xmlns:data-iview="http://www.w3.org/1999/xhtml" xmlns:data-iview="http://www.w3.org/1999/xhtml">×¢²á - Pan
-        ÅÊ</title>
+    <title xmlns:data-iview="http://www.w3.org/1999/xhtml" xmlns:data-iview="http://www.w3.org/1999/xhtml">æ³¨å†Œ - Pan
+        æ”€</title>
     <style>
         body {
             padding-top: 0;
