@@ -32,8 +32,26 @@ class ViewController extends Controller
            $propath=substr($propath, 0, strpos($propath, "?"));
         }
         if(in_array($propath,self::$except)){
-//            var_dump("out");
-            return true;
+            $dt = new Datetime();
+            $keys = Session::all();
+            $key = isset($keys["lkey"]) ? $keys["lkey"] : "";
+//        $key=$request->session()->get('lkey');
+            if ($key != null) {
+
+                $t = intval(substr($key, strrpos($key,"-")+1, 10));
+//                var_dump((($dt->getTimestamp() - $t) / 60) . "min");
+                if ($dt->getTimestamp() - $t > 30 * 60) {
+//                    var_dump("over");
+                    $dt->setTimestamp($t);
+                    Session::forget("lkey");
+                    array('pass'=>"notlogin");
+                }
+                $dt->setTimestamp($t);
+            } else {
+                array('pass'=>"notlogin");
+            }
+//            var_dump("ok");
+            return array('pass'=>"login");
         }else {
             $dt = new Datetime();
             $keys = Session::all();

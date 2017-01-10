@@ -1,4 +1,4 @@
-@import url('http://fonts.useso.com/css?family=Ubuntu:regular,italic,bold,bolditalic&subset=cyrillic,greek,latin');
+/*@import url('http://fonts.useso.com/css?family=Ubuntu:regular,italic,bold,bolditalic&subset=cyrillic,greek,latin');*/
 
 /* =========================
 css/reset.css
@@ -601,5 +601,100 @@ mine.css
     .iview-controlNav a.iview-controlNextNav{
         opacity: .5;
         float: right;
+    }
+}
+
+body {
+    background: #494A5F;
+    color: #D5D6E2;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.6);
+    outline: none;
+    text-decoration: none;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+a:hover, a:focus {
+    color: #74777b;
+    text-decoration: none;
+}
+
+.zzsc-content {
+    margin: 20px auto;
+}
+
+body {
+    background: none repeat scroll 0 0 #000000;
+}
+.first_neon,.second_neon,.third_neon{
+    width: 33%;
+    display: table-cell;
+    padding: 16px 25px;
+    margin: auto;
+    vertical-align: middle;
+}
+.first_neon {
+    background: none repeat scroll 0 0 #000000;
+    border: 1px solid;
+    border-radius: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Warnes";
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #FF00DE, 0 0 70px #FF00DE, 0 0 80px #FF00DE, 0 0 100px #FF00DE;
+    transition: text-shadow 0.5s ease 0s;
+
+}
+
+.first_neon:hover {
+    text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF;
+}
+
+.second_neon {
+    border: 1px solid;
+    border-radius: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Zeyada";
+    transition: text-shadow 0.5s ease 0s;
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF, 0 0 15px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #008000, 0 0 70px #008000, 0 0 80px #008000, 0 0 100px #008000;
+}
+
+.second_neon:hover {
+    text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #FFFF00, 0 0 70px #FFFF00, 0 0 80px #FFFF00, 0 0 100px #FFFF00;
+}
+
+.third_neon {
+    border: 1px solid;
+    border-radius: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Princess Sofia";
+    transition: text-shadow 0.5s ease 0s;
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF, 0 0 15px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF;
+}
+.third_neon>a{
+    font-family: "Princess Sofia";
+}
+
+.third_neon:hover {
+    text-shadow: 0 0 6px #FFFFFF, 0 0 15px #FFFFFF, 0 0 25px #FFFFFF, 0 0 40px #7FFF00, 0 0 70px #7FFF00, 0 0 80px #7FFF00, 0 0 100px #7FFF00;
+}
+@media(max-width: 600px){
+    .first_neon,.second_neon,.third_neon{
+        width: 33%;
+        display: inherit;
+        padding: 16px 25px;
+        margin-left: inherit;
+    }
+}
+@media(min-width: 1024px){
+    .zzsc-content{
+        width: 1024px;;
     }
 }

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section("head")
+    <title xmlns:data-iview="http://www.w3.org/1999/xhtml" xmlns:data-iview="http://www.w3.org/1999/xhtml">登录 - Pan 攀</title>
     @if(session("clearStoreKey")!=""&&session("clearStoreKey")==true)
         <script>
             localStorage.clear();

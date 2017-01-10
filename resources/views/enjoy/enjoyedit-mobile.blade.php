@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section("head")
-<?php ?>
+    <title xmlns:data-iview="http://www.w3.org/1999/xhtml" xmlns:data-iview="http://www.w3.org/1999/xhtml">应用管理 - Pan 攀</title>
+    @include("common.checkLogin")
         <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
@@ -113,7 +114,7 @@
         overflow-x: hidden;
     }
     .nav-menu > a:first-child {
-        color: #D6CECE;
+        color: #a0a0a0;
     }
     .list-group-item {
         position: relative;
@@ -135,14 +136,15 @@
 
 @section("content")
         <div class="panel-body background" style="padding-left: 0;padding-right: 0;">
-            <div class="col-xs-12  nav-menu " style="margin-bottom: 10px;font-size: 14pt;">
-                <a href="{{$base_url}}/enjoy/enjoy" class="pointer" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="应用管理">
+            @include("layouts.nav")
+            <div class="col-xs-12  nav-menu " style="margin-bottom: 10px;font-size: 14pt;margin-top: 15px;">
+                <a href="{{$base_url}}/enjoy/enjoy" class="pointer pull-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="应用管理">
                     <i class="glyphicon glyphicon-th"></i>应用中心
                 </a>
-                <a onclick="render(true);" class="pull-right pointer" id="trashtoggle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="应用管理">
+                <a onclick="render(true);" class="pull-right pointer" style="margin-right: 7px;" id="trashtoggle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="应用管理">
                     <i class="glyphicon glyphicon-trash"></i>回收站
                 </a>
-                <a  onclick="render(true);" class="pull-right pointer" style="display: none;" id="hometoggle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="应用管理">
+                <a  onclick="render(true);" class="pull-right pointer" style="display: none;margin-right: 7px;" id="hometoggle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="应用管理">
                     <i class="glyphicon glyphicon-home"></i>应用管理
                 </a>
             </div>

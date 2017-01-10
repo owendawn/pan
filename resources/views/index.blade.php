@@ -12,118 +12,12 @@
     <link async href="http://fonts.googleapis.com/css?family=Warnes" rel="stylesheet" type="text/css"/>
     <link async href="http://fonts.googleapis.com/css?family=Zeyada" rel="stylesheet" type="text/css"/>
     <link async href="http://fonts.googleapis.com/css?family=Princess%20Sofia" rel="stylesheet" type="text/css"/>
-    <style>
-
-        body {
-            background: #494A5F;
-            color: #D5D6E2;
-            /*font-weight: 500;*/
-            /*font-size: 1.05em;*/
-            /*font-family: "Microsoft YaHei", "宋体", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;*/
-        }
-
-        a {
-            color: rgba(255, 255, 255, 0.6);
-            outline: none;
-            text-decoration: none;
-            -webkit-transition: 0.2s;
-            transition: 0.2s;
-        }
-
-        a:hover, a:focus {
-            color: #74777b;
-            text-decoration: none;
-        }
-
-        .zzsc-content {
-            margin: 20px auto;
-        }
-
-        body {
-            background: none repeat scroll 0 0 #000000;
-        }
-        .first_neon,.second_neon,.third_neon{
-            width: 33%;
-            display: table-cell;
-            padding: 16px 25px;
-            margin: auto;
-            vertical-align: middle;
-        }
-        .first_neon {
-            background: none repeat scroll 0 0 #000000;
-            border: 1px solid;
-            border-radius: 15px;
-            color: #FFFFFF;
-            cursor: pointer;
-            font-family: "Warnes";
-            text-align: center;
-            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #FF00DE, 0 0 70px #FF00DE, 0 0 80px #FF00DE, 0 0 100px #FF00DE;
-            transition: text-shadow 0.5s ease 0s;
-
-        }
-
-        .first_neon:hover {
-            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF;
-        }
-
-        .second_neon {
-            border: 1px solid;
-            border-radius: 10px;
-            color: #FFFFFF;
-            cursor: pointer;
-            font-family: "Zeyada";
-            transition: text-shadow 0.5s ease 0s;
-            text-align: center;
-            text-shadow: 0 0 10px #FFFFFF, 0 0 15px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #008000, 0 0 70px #008000, 0 0 80px #008000, 0 0 100px #008000;
-        }
-
-        .second_neon:hover {
-            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #FFFF00, 0 0 70px #FFFF00, 0 0 80px #FFFF00, 0 0 100px #FFFF00;
-        }
-
-        .third_neon {
-            border: 1px solid;
-            border-radius: 10px;
-            color: #FFFFFF;
-            cursor: pointer;
-            font-family: "Princess Sofia";
-            transition: text-shadow 0.5s ease 0s;
-            text-align: center;
-            text-shadow: 0 0 10px #FFFFFF, 0 0 15px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF;
-        }
-        .third_neon>a{
-            font-family: "Princess Sofia";
-        }
-
-        .third_neon:hover {
-            text-shadow: 0 0 6px #FFFFFF, 0 0 15px #FFFFFF, 0 0 25px #FFFFFF, 0 0 40px #7FFF00, 0 0 70px #7FFF00, 0 0 80px #7FFF00, 0 0 100px #7FFF00;
-        }
-        @media(max-width: 600px){
-            .first_neon,.second_neon,.third_neon{
-                width: 33%;
-                display: inherit;
-                padding: 16px 25px;
-                margin-left: inherit;
-            }
-        }
-        @media(min-width: 1024px){
-            .zzsc-content{
-                width: 1024px;;
-            }
-        }
-    </style>
 @endsection
 
 @section("content")
 
     <div class="panel-body">
         @include("layouts.nav")
-
-        主页<i class="fa fa-window-close-o"></i>
-        <a href="{{$base_url}}/login/login">登录</a>
-        <a href="{{$base_url}}/login/register">注册</a>
-        <a href="{{$base_url}}/user/logout">退出</a>
-
         <div id="iview" style="width: 100%;margin:0;padding:0;">
             <div data-iview:image="http://d.139.sh/owendawn139/pan/photos/photo1.jpg"
                  data-iview:transition="slice-top-fade,slice-right-fade">

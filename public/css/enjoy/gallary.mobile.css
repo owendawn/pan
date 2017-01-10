@@ -106,7 +106,7 @@ a{color:#CCC;text-decoration:none}
   cursor: pointer;
   width: 100%;
   height: auto;
-  padding-bottom: 2px;
+  /*padding-bottom: 2px;*/
   /*margin-right: .5%*/
 }
 

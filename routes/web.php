@@ -12,11 +12,18 @@
 
 function logindispatch(\App\Http\Controllers\ViewController $viewController, $theview){
 //    var_dump(session()->all());
-    if($viewController->checkLogined()){
-        return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile());
-    }else{
+    $re=$viewController->checkLogined();
+    if($re==true){
+        return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile())->with("login",true);
+    }else if($re==false){
 //        return view('login/login')->with("base_url", Config::get("app.base_url"));
-        return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile())->with("checkLogin",true);
+        return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile())->with("checkLogin",true)->with("login",false);
+    }else if(is_array($re)){
+        if($re["pass"]=="login"){
+            return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile())->with("login",true);
+        }else if($re["pass"]=="notlogin"){
+            return $theview->with("base_url", Config::get("app.base_url"))->with("isMobile",$viewController->isMobile())->with("login",false);
+        }
     }
 }
 

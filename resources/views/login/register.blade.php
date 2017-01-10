@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section("head")
+    <title xmlns:data-iview="http://www.w3.org/1999/xhtml" xmlns:data-iview="http://www.w3.org/1999/xhtml">×¢²á - Pan
+        ÅÊ</title>
     <style>
         body {
             padding-top: 0;
@@ -176,23 +178,25 @@
     @endsection
 
     @section("content")
-            <!-- Bootstrap Boilerplate... -->
-
     <div class="panel-body" style="padding:0;z-index: -1;" frameborder="0" scrolling="no">
         <div style="z-index: 0;position: fixed;width:100%;height: 100%;;">
             <iframe src="{{$base_url}}/login/registerbg" style="width: 100%;height: 100%;border: 0;"></iframe>
             <div></div>
         </div>
         <div style="padding-top: 5%;">
-            <form action="javascript:submit();" method="post" style="z-index: 99;position: relative;padding-top:70px;padding-bottom: 25px;" id="theform">
-                <input name="name" placeholder="What is your name?" class="name" type="text" required value="{{isset($msg)&&isset($msg["name"])?$msg["name"]:""}}"/>
-                <input name="mail" placeholder="What is your Email?" class="email" type="email" required  value="{{isset($msg)&&isset($msg["mail"])?$msg["mail"]:""}}"/>
+            <form action="javascript:submit();" method="post"
+                  style="z-index: 99;position: relative;padding-top:70px;padding-bottom: 25px;" id="theform">
+                <input name="name" placeholder="What is your name?" class="name" type="text" required
+                       value="{{isset($msg)&&isset($msg["name"])?$msg["name"]:""}}"/>
+                <input name="mail" placeholder="What is your Email?" class="email" type="email" required
+                       value="{{isset($msg)&&isset($msg["mail"])?$msg["mail"]:""}}"/>
                 <input name="password" placeholder="What is your password?" class="email" type="password" required/>
                 <input name="passwordcheck" placeholder="Your password, Again?" class="email" type="password" required/>
                 {{--<textarea rows="4" cols="50" name="subject" placeholder="Please enter your message" class="message" required></textarea>--}}
                 <input name="button" class="btn" type="submit" value="Register"/>
                 <br>
-                <span id="info" style="color:rgba(247, 150, 200, 0.7);">{{isset($register)&&$register==false?$info:""}}</span>
+                <span id="info"
+                      style="color:rgba(247, 150, 200, 0.7);">{{isset($register)&&$register==false?$info:""}}</span>
                 <br>
                 <hr style="width:100%;border-color: #908b8b;">
                 <a href="{{$base_url}}/login/login">already has an Account ?</a>
@@ -200,23 +204,23 @@
         </div>
     </div>
     <script>
-        function submit(obj){
-            $_formdom=document.getElementById("theform");
-            $_infodom=document.getElementById("info");
-            if(document.getElementsByName('name').value==""){
-                $_infodom.innerHTML="name is required!";
-            }else if(document.getElementsByName('mail').value==""){
-                $_infodom.innerHTML="Email is required!";
-            }else if(document.getElementsByName("password").value==""){
-                $_infodom.innerHTML="password is required!";
-            }else{
-                $_infodom.innerHTML="";
-                if(document.getElementsByName("password").value==document.getElementsByName("passwordcheck").value){
-                    $_formdom.action="{{$base_url}}/user/register";
+        function submit(obj) {
+            $_formdom = document.getElementById("theform");
+            $_infodom = document.getElementById("info");
+            if (document.getElementsByName('name').value == "") {
+                $_infodom.innerHTML = "name is required!";
+            } else if (document.getElementsByName('mail').value == "") {
+                $_infodom.innerHTML = "Email is required!";
+            } else if (document.getElementsByName("password").value == "") {
+                $_infodom.innerHTML = "password is required!";
+            } else {
+                $_infodom.innerHTML = "";
+                if (document.getElementsByName("password").value == document.getElementsByName("passwordcheck").value) {
+                    $_formdom.action = "{{$base_url}}/user/register";
                     document.getElementById("theform").submit();
                     document.getElementsByName("button")[0].click();
-                }else{
-                    $_infodom.innerHTML="password again is't same as password!";
+                } else {
+                    $_infodom.innerHTML = "password again is't same as password!";
                 }
             }
         }
