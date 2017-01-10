@@ -84,7 +84,7 @@
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"/>
     <!-- 添加 RSS 订阅 -->
-    <link rel="shortcut icon" type="image/ico" href="{{$base_url}}/favicon.ico"/>
+    <link rel="shortcut icon" type="image/ico" href="http://d.139.sh/owendawn139/Resource/pan/favicon.ico"/>
     <!-- 添加 favicon icon -->
 
     <!--html5 旧浏览器支持-->
