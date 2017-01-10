@@ -89,6 +89,22 @@ oTable = $('#editabledatatable').dataTable({
             return "<span data-value='"+data+"'>"+dd[Number(data)]+"</span>";
         }
     },{
+        "aTargets": [2],
+        "mRender": function(data, type, full) {
+            if(!data){
+                return "<div></div>"
+            }
+            return "<div style='max-width: 270px;overflow: hidden;text-overflow: ellipsis;'>"+data+"</div>";
+        }
+    },{
+        "aTargets": [3],
+        "mRender": function(data, type, full) {
+            if(!data){
+                return "<div></div>"
+            }
+            return "<div style='max-width:270px;overflow: hidden;text-overflow: ellipsis;'>"+data+"</div>";
+        }
+    },{
         "aTargets": [4],
         "sTitle": "操作",
         "mData": "id",

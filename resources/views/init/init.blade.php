@@ -266,7 +266,7 @@
 
 @section("content")
     <div class="panel-body">
-        @if(isset($login)?$login:false)
+        @if(isset($logined)?$logined:false)
             <div class='container col-lg-4 col-lg-offset-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12' style="padding:0;">
                 <h1>Guided tour initiation of App</h1>
                 <span class='close'></span>

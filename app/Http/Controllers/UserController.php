@@ -20,9 +20,9 @@ class UserController extends Controller
         $name = $_REQUEST["name"];
         $pwd = $_REQUEST["pwd"];
         if ($name == "Admin" && $pwd == "Admin") {
-            return view("init/init")->with("login", true);
+            return view("init/init")->with("logined", true);
         } else {
-            return view('init/login')->with("login", false)->with("loginInfo", "超级用户名或密码错误");
+            return view('init/login')->with("logined", false)->with("loginInfo", "超级用户名或密码错误");
         }
     }
 

@@ -5,7 +5,7 @@
         text-align: center;
         position: absolute;
         left: 0;
-        z-index: 999999;
+        z-index: 999;
         margin-top: -14px;
     }
 
@@ -40,7 +40,7 @@
         font-size: 20px;
         padding:10px 20px;;
         margin: 1px 0;
-        pointer-events: none;
+        /*pointer-events: none;*/
         border-radius: 4px;
         background: rgba(0, 0, 0, 0.32);
         -webkit-transition: -webkit-transform 0.5s;
@@ -223,9 +223,9 @@
                             (function(){
                                 var d=xmlHttp.responseText; // ·µ»ØÖµ
                                 if(d=="false"){
-                                   document.write('<a href="{{$base_url}}/login/login"><div class="dummy__item">Login</div></a>');
+                                   document.write('<div class="dummy__item"><a href="{{$base_url}}/login/login">Login</a></div>');
                                 }else if(d=="true"){
-                                    document.write('<a href="{{$base_url}}/user/logout"><div class="dummy__item">Logout</div></a>');
+                                    document.write('<div class="dummy__item"><a href="{{$base_url}}/user/logout">Logout</a></div>');
                                 }
                             })()
                         })();
@@ -234,10 +234,10 @@
 
                 @endif
                 @if(isset($login)&&$login==true)
-                <a href="{{$base_url}}/user/logout"><div class="dummy__item">Logout</div></a>
+                <div class="dummy__item"><a href="{{$base_url}}/user/logout">Logout</a></div>
                 @endif
-                <a href="{{$base_url}}/index"><div class="dummy__item">Home</div></a>
-                <a href="{{$base_url}}/enjoy/enjoy"><div class="dummy__item">Enjoy Video</div></a>
+                <div class="dummy__item"><a href="{{$base_url}}/index">Home</a></div>
+                <div class="dummy__item"><a href="{{$base_url}}/enjoy/enjoy" >Enjoy Video</a></div>
             </div><!-- /dummy -->
         </div><!-- /device-content -->
     </div><!-- /device -->
@@ -346,8 +346,5 @@
             }
             toCloseIcon = !toCloseIcon;
         };
-
-
     })();
-
 </script>

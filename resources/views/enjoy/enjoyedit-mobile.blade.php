@@ -148,7 +148,10 @@
                     <i class="glyphicon glyphicon-home"></i>应用管理
                 </a>
             </div>
-            <div class="col-xs-12" style="margin-bottom:10px; box-shadow: 0 -4px 13px 0px rgba(0,0,0,.3);" id="cards-container">
+            <div class="col-xs-12"  style="margin-bottom:10px; box-shadow: 0 -4px 13px 0px rgba(0,0,0,.3);padding:5px;" >
+                <a class="btn btn-info pull-right" id="addnew"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
+            </div>
+            <div class="col-xs-12"id="cards-container">
 
             </div>
         </div>

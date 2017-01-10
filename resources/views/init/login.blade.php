@@ -170,7 +170,7 @@
             </div>
             <p class="p-container">
                 {{--<span>Forgot password ?</span>--}}
-                @if( isset($login)&&$login==false  )
+                @if( isset($logined)&&$logined==false  )
                     <span id="info">{{$loginInfo}}</span>
                 @else
                     <span id="info"></span>
