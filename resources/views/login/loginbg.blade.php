@@ -15,7 +15,7 @@
             <pattern id='image' width="1" height="1" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {{--<image xlink:href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/78881/pattern_141.gif" width="100" height="100" preserveAspectRatio="none"></image>--}}
                 {{--<image xlink:href="/pan/public/img/pattern.jpg" width="100" height="100" preserveAspectRatio="none"></image>--}}
-                <image xlink:href="http://d.139.sh/owendawn139/Resource/img/pattern.jpg" width="100" height="100"
+                <image xlink:href="{{$base_url}}/img/pattern.gif" width="100" height="100"
                        preserveAspectRatio="none"></image>
             </pattern>
             <g id="shape-butterfly-1">
