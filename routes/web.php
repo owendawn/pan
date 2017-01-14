@@ -57,13 +57,18 @@ Route::get('/{f1}', function ($f1,\App\Http\Controllers\ViewController $viewCont
 });
 Route::get('/{d1}/{f1}', function ($d1, $f1,\App\Http\Controllers\ViewController $viewController,\Illuminate\Http\Request $req) {
     $xduri=substr($req->getRequestUri(),strlen(Config::get("app.base_url")));
-    if($xduri=="/enjoy/enjoy"){
+    $xduriOnly=$xduri;
+    $index=strpos($xduri,"?");
+    if($index!=false){
+        $xduriOnly=substr($xduri,0,$index);
+    }
+    if($xduriOnly=="/enjoy/enjoy"){
         if($viewController->isMobile()){
             $f1="enjoy-mobile";
         }else{
             $f1="enjoy-pc";
         }
-    }else if($xduri=="/enjoy/enjoyedit"){
+    }else if($xduriOnly=="/enjoy/enjoyedit"){
         if($viewController->isMobile()){
             $f1="enjoyedit-mobile";
         }else{
