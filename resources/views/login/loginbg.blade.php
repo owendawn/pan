@@ -14,9 +14,8 @@
         <defs>
             <pattern id='image' width="1" height="1" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {{--<image xlink:href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/78881/pattern_141.gif" width="100" height="100" preserveAspectRatio="none"></image>--}}
-                {{--<image xlink:href="/pan/public/img/pattern.jpg" width="100" height="100" preserveAspectRatio="none"></image>--}}
-                <image xlink:href="{{$base_url}}/img/pattern.gif" width="100" height="100"
-                       preserveAspectRatio="none"></image>
+                <image xlink:href="https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392512225534580_b.gif" width="100" height="100" preserveAspectRatio="none"></image>
+                {{--<image xlink:href="{{$base_url}}/img/pattern.gif" width="100" height="100"preserveAspectRatio="none"></image>--}}
             </pattern>
             <g id="shape-butterfly-1">
                 <path class="path" fill="" clip-rule="evenodd" d="M8.65,2.85c0.934-0.2,2.15-0.333,3.65-0.4c1.534-0.1,2.667-0.083,3.4,0.05

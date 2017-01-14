@@ -322,21 +322,24 @@ css/skin1/style.css
     float: left;
     width: 50px;
     height: 44px;
-    background: url('../img/slider-controls.png') no-repeat;
+    /*background: url('../img/slider-controls.png') no-repeat;*/
+    background: url('https://vi2.6rooms.com/live/2017/01/14/19/1002v1484392519087472938_b.jpg') no-repeat;
 }
 
 .iview-controlNav a.iview-controlNextNav {
     float: left;
     width: 50px;
     height: 44px;
-    background: url('../img/slider-controls.png') no-repeat -50px 0px;
+    /*background: url('../img/slider-controls.png') no-repeat -50px 0px;*/
+    background: url('https://vi2.6rooms.com/live/2017/01/14/19/1002v1484392519087472938_b.jpg') no-repeat -50px 0px;
 }
 
 .iview-controlNav div.iview-items {
     float: left;
     padding: 0px 10px 0px 10px;
     height: 44px;
-    background: url('../img/nav-bg.png');
+    background: url('https://vi2.6rooms.com/live/2017/01/14/19/1002v1484392511924412543_b.jpg');
+    /*background: url('../img/nav-bg.png');*/
 }
 
 .iview-controlNav a.iview-control {
@@ -353,7 +356,8 @@ css/skin1/style.css
 }
 
 .iview-caption {
-    background: url('../img/caption-bg.png');
+    background: url('https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392499709723233_b.jpg');
+    /*background: url('../img/caption-bg.png');*/
     color: #FFF;
     border-radius: 3px;
     padding: 10px 15px;
@@ -443,7 +447,8 @@ css/skin1/style.css
 #iview #iview-tooltip {
     display: none;
     position: absolute;
-    background: url('../img/tooltip.png') no-repeat;
+    background: url('https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392519462869757_b.jpg') no-repeat;
+    /*background: url('../img/tooltip.png') no-repeat;*/
     width: 124px;
     height: 90px;
     bottom: 30px;

@@ -619,7 +619,8 @@ body {
   -ms-transform: rotateY(0deg) translateZ(-256px);
   -o-transform: rotateY(0deg) translateZ(-256px);
   transform: rotateY(0deg) translateZ(-256px);
-  background-image: url("../img/clouds_front.jpg");
+  background-image: url("https://vi1.6rooms.com/live/2017/01/14/19/1002v1484392503886741400_b.jpg");
+  /*background-image: url("../img/clouds_front.jpg");*/
 }
 .skybox.cube .face.back {
   -webkit-transform: rotateY(180deg) translateZ(-256px);
@@ -627,7 +628,8 @@ body {
   -ms-transform: rotateY(180deg) translateZ(-256px);
   -o-transform: rotateY(180deg) translateZ(-256px);
   transform: rotateY(180deg) translateZ(-256px);
-  background-image: url("../img/clouds_back.jpg");
+  background-image: url("https://vi2.6rooms.com/live/2017/01/14/19/1002v1484392501849052448_b.jpg");
+  /*background-image: url("../img/clouds_back.jpg");*/
 }
 .skybox.cube .face.right {
   -webkit-transform: rotateY(-90deg) translateZ(-256px);
@@ -635,7 +637,8 @@ body {
   -ms-transform: rotateY(-90deg) translateZ(-256px);
   -o-transform: rotateY(-90deg) translateZ(-256px);
   transform: rotateY(-90deg) translateZ(-256px);
-  background-image: url("../img/clouds_right.jpg");
+  background-image: url("https://vi2.6rooms.com/live/2017/01/14/19/1002v1484392507984879232_b.jpg");
+  /*background-image: url("../img/clouds_right.jpg");*/
 }
 .skybox.cube .face.left {
   -webkit-transform: rotateY(90deg) translateZ(-256px);
@@ -643,7 +646,8 @@ body {
   -ms-transform: rotateY(90deg) translateZ(-256px);
   -o-transform: rotateY(90deg) translateZ(-256px);
   transform: rotateY(90deg) translateZ(-256px);
-  background-image: url("../img/clouds_left.jpg");
+  background-image: url("https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392505926195758_b.jpg");
+  /*background-image: url("../img/clouds_left.jpg");*/
 }
 .skybox.cube .face.top {
   -webkit-transform: rotateX(-90deg) translateZ(-256px);
@@ -651,7 +655,8 @@ body {
   -ms-transform: rotateX(-90deg) translateZ(-256px);
   -o-transform: rotateX(-90deg) translateZ(-256px);
   transform: rotateX(-90deg) translateZ(-256px);
-  background-image: url("../img/clouds_top.jpg");
+  background-image: url("https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392509846966891_b.jpg");
+  /*background-image: url("../img/clouds_top.jpg");*/
 }
 .skybox.cube .face.bottom {
   -webkit-transform: rotateX(90deg) translateZ(-256px);
@@ -659,7 +664,8 @@ body {
   -ms-transform: rotateX(90deg) translateZ(-256px);
   -o-transform: rotateX(90deg) translateZ(-256px);
   transform: rotateX(90deg) translateZ(-256px);
-  background-image: url("../img/hazy_lake_top.jpg");
+  background-image: url("https://vi2.6rooms.com/live/2017/01/14/19/1002v1484392511503562153_b.jpg");
+  /*background-image: url("../img/hazy_lake_top.jpg");*/
   background: none;
 }
 
