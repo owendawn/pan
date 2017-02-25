@@ -21,7 +21,7 @@
         <div id="iview" style="width: 100%;margin:0;padding:0;">
             <div
                     {{--data-iview:image="{{$base_url}}/img/photo1.jpg"--}}
-                    data-iview:image="https://vi0.6rooms.com/live/2017/01/14/19/1002v1484392513321739019_b.jpg"
+                    data-iview:image="https://vi3.6rooms.com/live/2017/02/25/12/1002v1487998238517126140_b.jpg"
                  data-iview:transition="slice-top-fade,slice-right-fade">
                 <div class="iview-caption caption1" data-x="80" data-y="200">dReam</div>
                 <div class="iview-caption" data-x="80" data-y="275" data-transition="wipeRight">To get what i want, i will Get better.
@@ -31,7 +31,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/photo2.jpg"--}}
-                    data-iview:image="https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392514508494851_b.jpg"
+                    data-iview:image="https://vi1.6rooms.com/live/2017/02/25/12/1002v1487998241680079630_b.jpg"
                  data-iview:transition="zigzag-drop-top,zigzag-drop-bottom" data-iview:pausetime="3000">
                 <div class="iview-caption caption5" data-x="60" data-y="280" data-transition="wipeDown">The best preparation for tomorrow
                     is doing your best today
@@ -41,7 +41,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/video.jpg" data-iview:type="video"--}}
-                    data-iview:image="https://vi1.6rooms.com/live/2017/01/14/19/1002v1484392520218366802_b.jpg" data-iview:type="video"
+                    data-iview:image="https://vi0.6rooms.com/live/2017/02/25/12/1002v1487998744685837350_b.jpg" data-iview:type="video"
                  data-iview:transition="strip-right-fade,strip-left-fade">
                 {{--<iframe src="http://player.vimeo.com/video/11475955?byline=1&amp;portrait=0" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>--}}
                 <div class="iview-caption caption2" data-x="450" data-y="340" data-transition="wipeRight">Video</div>
@@ -50,7 +50,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/photo3.jpg"--}}
-                    data-iview:image="https://vi1.6rooms.com/live/2017/01/14/19/1002v1484392515699465767_b.jpg"
+                    data-iview:image="https://vi0.6rooms.com/live/2017/02/25/12/1002v1487998243324948278_b.jpg"
                     >
                 <div class="iview-caption caption4" data-x="50" data-y="80" data-width="312" data-transition="fade">
                     Don't
@@ -77,7 +77,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/photo4.jpg"--}}
-                    data-iview:image="https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392517118770552_b.jpg"
+                    data-iview:image="https://vi3.6rooms.com/live/2017/02/25/12/1002v1487998245133240443_b.jpg"
                     >
                 <div class="iview-caption caption7" data-x="0" data-y="0" data-width="180" data-height="480"
                      data-transition="wipeRight">
