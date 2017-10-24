@@ -345,6 +345,13 @@ oTable2 = $('#trashdatatable').dataTable({
             "name": "userid",
             "value": userId
         });
+	aoData.push({name:'mDataProp_5',value:'updated_at'});
+	for(var i=0;i<aoData.length;i++){
+	    var it=aoData[i];
+	    if(it.name=='iSortCol_0'){
+	    	aoData[i].value=5;
+	    }
+	}
     },
     "aoColumnDefs": [{
         "aTargets": [0],

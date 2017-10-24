@@ -245,7 +245,7 @@ class VideoController extends Controller
             return DataHandlerUtil::returnJson("-1", array("info" => "please fill the video's name"));
         } else {
             $html->load_file('http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=25&ie=utf-8&word=' . urlencode($words));
-            $imgs = $html->find("#content>.main-content>.special-wrap>.sp-cont-show>.detail-info>.poster>.poster-link>img");
+            $imgs = $html->find("#content>.main-content .sp-cont-show>.detail-info>.poster>.poster-link>img");
             $imgsall = $imgs;
 //            $html->load_file('http://m.v.baidu.com/search?src=video&word='.urlencode("°Ö°ÖÈ¥ÄÄ¶ù"));
 //            $imgs2=$html->find("#search-page>.search-bd>.search-block.search-block-tvshow>.special-base-wrap>.base-poster>img");
@@ -253,7 +253,7 @@ class VideoController extends Controller
             $srcs = [];
             foreach ($imgsall as $img) {
                 $src = $img->src;
-                if (strpos($src, ".hiphotos.baidu") == false && strpos($src, ".baidu.com/it/u") != false) {
+                if ((strpos($src, ".hiphotos.baidu") == false && strpos($src, ".baidu.com/it/u") != false)||strpos($src, ".gtimg.cn/") != false) {
                     array_push($srcs, $src);
 //                    echo "<img src='" . $img->src . "' style='width:100px:height:50px;'/>";
 //                    echo $img->src;

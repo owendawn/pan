@@ -41,7 +41,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/video.jpg" data-iview:type="video"--}}
-                    data-iview:image="https://vi0.6rooms.com/live/2017/02/25/12/1002v1487998744685837350_b.jpg" data-iview:type="video"
+                    data-iview:image="http://i65.tinypic.com/206nc68.jpg" data-iview:type="video"
                  data-iview:transition="strip-right-fade,strip-left-fade">
                 {{--<iframe src="http://player.vimeo.com/video/11475955?byline=1&amp;portrait=0" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>--}}
                 <div class="iview-caption caption2" data-x="450" data-y="340" data-transition="wipeRight">Video</div>
@@ -50,7 +50,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/photo3.jpg"--}}
-                    data-iview:image="https://vi0.6rooms.com/live/2017/02/25/12/1002v1487998243324948278_b.jpg"
+                    data-iview:image="http://i63.tinypic.com/2ylmvyu.jpg"
                     >
                 <div class="iview-caption caption4" data-x="50" data-y="80" data-width="312" data-transition="fade">
                     Don't
@@ -77,7 +77,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/photo4.jpg"--}}
-                    data-iview:image="https://vi3.6rooms.com/live/2017/02/25/12/1002v1487998245133240443_b.jpg"
+                    data-iview:image="http://i65.tinypic.com/2ce13f7.jpg"
                     >
                 <div class="iview-caption caption7" data-x="0" data-y="0" data-width="180" data-height="480"
                      data-transition="wipeRight">
@@ -104,7 +104,7 @@
 
             <div
                     {{--data-iview:image="{{$base_url}}/img/photo5.jpg"--}}
-                    data-iview:image="https://vi3.6rooms.com/live/2017/01/14/19/1002v1484392518589574991_b.jpg"
+                    data-iview:image="http://i64.tinypic.com/2j5nzty.jpg"
                     >
                 <div class="iview-caption caption5" data-x="60" data-y="150" data-transition="wipeLeft">What are you
                     waiting for?
