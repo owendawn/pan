@@ -253,7 +253,7 @@ class VideoController extends Controller
             $srcs = [];
             foreach ($imgsall as $img) {
                 $src = $img->src;
-                if ((strpos($src, ".hiphotos.baidu") == false && strpos($src, ".baidu.com/it/u") != false)||strpos($src, ".gtimg.cn/") != false||strpos($src, ".ykimg.com/") != false||strpos($src, ".mgtv.com/") != false) {
+                if (strpos($src, ".hiphotos.baidu") == false) {
                     array_push($srcs, $src);
 //                    echo "<img src='" . $img->src . "' style='width:100px:height:50px;'/>";
 //                    echo $img->src;
