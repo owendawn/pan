@@ -126,6 +126,9 @@
         .bgcontainer:hover {
             -webkit-filter: sepia(0.2) brightness(0.9) contrast(1.3);
         }
+        #imgdiv a{
+            cursor: pointer;;
+        }
     </style>
 @endsection
 
