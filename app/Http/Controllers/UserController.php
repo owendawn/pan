@@ -31,7 +31,6 @@ class UserController extends Controller
         $name = $_REQUEST["name"];
         $pwd = $_REQUEST["password"];
         $store = isset($_REQUEST["store"])?$_REQUEST["store"]:"";
-        $info="";
         try {
             $sqlExtra = new SqlExtra();
             $pdo = $sqlExtra->getPDO();
